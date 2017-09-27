@@ -1,0 +1,26 @@
+---
+title: "Data Products - Week 2 Project"
+author: "Andrew Holshouser"
+date: "September 27, 2017"
+output: html_document
+---
+#Coffee Around Work
+Starbuck is the only coffee around worth drinking
+```{r, echo= FALSE}
+suppressWarnings(
+library(leaflet))
+
+StBks<-data.frame(
+  lat = c(35.055251, 35.053073, 35.059993, 35.058799),
+  lng = c(-80.851851, -80.849104, -80.816574, -80.816145)
+)
+
+StBksSites<-c("<a href='http://www.starbucks.com'>Starbucks</a>")
+
+  StBks %>% 
+    leaflet() %>%
+    addTiles() %>%
+    addMarkers(popup=StBksSites, clusterOptions=markerClusterOptions())
+```
+
+
